@@ -1,0 +1,39 @@
+.shiny-text {
+  display: inline-block;
+  color: var(--shiny-base-color, #2563EB);
+  background: linear-gradient(
+    120deg,
+    var(--shiny-base-color, #2563EB) 0%,
+    var(--shiny-base-color, #2563EB) 35%,
+    #93c5fd 50%,
+    var(--shiny-base-color, #2563EB) 65%,
+    var(--shiny-base-color, #2563EB) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shinySweep 4s ease-in-out infinite;
+}
+
+.shiny-text.disabled {
+  animation: none;
+  background: none;
+  -webkit-text-fill-color: var(--shiny-base-color, #2563EB);
+}
+
+@keyframes shinySweep {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shiny-text {
+    animation: none !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--shiny-base-color, #2563EB) !important;
+  }
+}

@@ -1,0 +1,27 @@
+.fade-content-wrapper {
+  opacity: var(--initial-opacity, 0);
+  transform: translateY(18px);
+  transition: opacity var(--fade-duration, 600ms) var(--fade-easing, cubic-bezier(0.16, 1, 0.3, 1)) var(--fade-delay, 0ms),
+              transform var(--fade-duration, 600ms) var(--fade-easing, cubic-bezier(0.16, 1, 0.3, 1)) var(--fade-delay, 0ms),
+              filter var(--fade-duration, 600ms) var(--fade-easing, cubic-bezier(0.16, 1, 0.3, 1)) var(--fade-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.fade-content-wrapper.has-blur {
+  filter: blur(6px);
+}
+
+.fade-content-wrapper.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-content-wrapper {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

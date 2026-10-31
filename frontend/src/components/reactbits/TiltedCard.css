@@ -1,0 +1,22 @@
+.tilted-card-container {
+  display: block;
+  transform-style: preserve-3d;
+}
+
+.tilted-card-inner {
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  border-radius: var(--radius-lg, 12px);
+}
+
+.tilted-card-container.hovered .tilted-card-inner {
+  box-shadow: 0 12px 28px -6px rgba(16, 42, 67, 0.12), 0 8px 12px -6px rgba(16, 42, 67, 0.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilted-card-inner {
+    transform: none !important;
+    transition: none !important;
+  }
+}
